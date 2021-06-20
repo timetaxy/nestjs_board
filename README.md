@@ -10,3 +10,10 @@ nodejs 설치
 
 sudo npm i -g @nestjs/cli
 nest new [name]
+or
+nest new ./
+
+nest-cli.json
+네스트 설정
+
+npm run start:dev

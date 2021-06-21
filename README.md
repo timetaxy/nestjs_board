@@ -88,6 +88,10 @@ remove 존재하는 아이템, delete 존재하지 않을시 에러없음
 
 <!-- 커스텀 파이프(빌트인과 다름) -->
 
+pipeTransform 인터페이스는 모든 파이프에서 구현해줘야 하는 인터페이스
+args 처리위해 사용되는 transform() 메소드 필수
+파라메터1 value, 파라메터2 metadata
+
 implements PipeTransform
 
 #todo

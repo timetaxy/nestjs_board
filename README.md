@@ -116,7 +116,11 @@ docs.nestjs 참조
 configs/typeorm.configs.ts 생성
 
 synchronize 옵션, drop 후 재생성
-repository 엔티티와 삽입 업데이트 삭제 등 처리 : typeorm.delightful.studio/classes/_repository_repository_.repository.html
+repository 엔티티와 삽입 업데이트 삭제 등 처리 (db처리):
+
+문서
+
+<!-- typeorm.delightful.studio/classes/_repository_repository_.repository.html -->
 
 td
 repository 생성

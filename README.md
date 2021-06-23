@@ -94,19 +94,24 @@ args 처리위해 사용되는 transform() 메소드 필수
 
 implements PipeTransform
 
+<!-- brew install postgresql -->
+<!-- brew services list -->
+<!-- brew services start postgresql -->
+<!-- https://www.pgadmin.org/download/ -->
+
 #todo
 boards-pipe-board-status-vadation.pipe.ts 생성
 ctrl.updateSatus 수정
 ?타입스크립트 readonly 옵션
 설치-postgresSQL, pgAdmin
 
-typeorm
+typeorm - object relation mapping
 nodejs에서 실행, typescript로 작성된 객체 관계형 매퍼 라이브러리 여러 db 지원
 객체와 관계형 데이터베이스의 데이터를 자동 변형 및 연결
 객체와 데이터베이스 변형에 유연하게 사용
 
-td
-npm i pg typeorm @nestjs/typeorm --save
+<!-- npm i pg typeorm @nestjs/typeorm --save -->
+
 docs.nestjs 참조
 configs/typeorm.configs.ts 생성
 

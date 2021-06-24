@@ -40,6 +40,13 @@ imports: [TypeOrmModule.forFeature([BoardRepository])],
 
 # 콘트롤러에 레포지토리 주입
 
+# 반복 repository > dto >service > controller
+
+===
+저장
+
+# repository.create > entity > repository.save
+
 ===
 docs.nestjs.com
 내부적 express 토대로 만든 http서버 프레임워크, fastify 교체 가능

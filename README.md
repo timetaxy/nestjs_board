@@ -84,7 +84,7 @@ getBoard에 notFouondException 선언해주기
 delete에 없는 게시물 지우려 시도시 에러처리는 기존에 구현한 getBoardById 활용(not found exception 발생)
 db를 이용한 crud 구현
 
-remove 존재하는 아이템, delete 존재하지 않을시 에러없음
+<!-- remove 존재하는 아이템, delete 존재하지 않을시 에러없음 -->
 
 <!-- 커스텀 파이프(빌트인과 다름) -->
 
@@ -120,6 +120,7 @@ repository 엔티티와 삽입 업데이트 삭제 등 처리 (db처리):
 
 문서
 
+<!-- https://typeorm.io/#/ -->
 <!-- typeorm.delightful.studio/classes/_repository_repository_.repository.html -->
 
 td

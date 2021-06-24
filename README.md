@@ -5,8 +5,42 @@
 
 # quick refactoring shortcut: command + .
 
+===
+
 # 순서 : model > svc > ctrl 생성이 일반
 
+# nest g module []
+
+# nest g controller [] --no-spec
+
+# nest g service [] --no-spec
+
+# [].entity.ts
+
+@Entity()
+export class User extends BaseEntity {
+@PrimaryGeneratedColumn
+id: number;
+@Column
+username: string;
+@Column
+password: string;
+}
+
+# [].respository.ts
+
+@EntityRepository(User)
+export class UserRepository extends Repository<User> {}
+
+# [].module.ts에 추가
+
+imports: [TypeOrmModule.forFeature([BoardRepository])],
+
+# 서비스에 레포지토리 주입
+
+# 콘트롤러에 레포지토리 주입
+
+===
 docs.nestjs.com
 내부적 express 토대로 만든 http서버 프레임워크, fastify 교체 가능
 고도로 테스트가능, 느슨한 결합, 유지관리 쉬운, angular 영향

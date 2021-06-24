@@ -18,15 +18,16 @@ export class BoardsService {
     return found;
   }
   async createBoard(dto: CreateBoardDto): Promise<Board> {
-    const { title, description } = dto;
-    const board: Board = this.boardRepository.create({
-      //객체생성
-      title,
-      description,
-      status: BoardStatus.PUBLIC,
-    });
-    await this.boardRepository.save(board); //저장
-    return board;
+    // const { title, description } = dto;
+    // const board: Board = this.boardRepository.create({
+    //   //객체생성
+    //   title,
+    //   description,
+    //   status: BoardStatus.PUBLIC,
+    // });
+    // await this.boardRepository.save(board); //저장
+    // return board;
+    return this.boardRepository.createBoard(dto);
   }
 
   /**

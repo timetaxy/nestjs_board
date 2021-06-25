@@ -6,7 +6,7 @@ import { AuthCredentialsDto } from './dto/auth-credential';
 export class AuthController {
   constructor(private authService: AuthService) {}
   @Post('/signup')
-  signUp(@Body() dto: AuthCredentialsDto): Promise<void> {
+  signUp(@Body(ValidationPipe) dto: AuthCredentialsDto): Promise<void> {
     return this.authService.signUp(dto);
   }
 }

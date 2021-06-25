@@ -163,6 +163,7 @@ repository 엔티티와 삽입 업데이트 삭제 등 처리 (db처리):
 
 <!-- https://typeorm.io/#/ -->
 <!-- typeorm.delightful.studio/classes/_repository_repository_.repository.html -->
+<!-- github.com/typstack/class-validator -->
 
 td
 repository 생성

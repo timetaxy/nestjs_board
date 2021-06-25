@@ -179,7 +179,9 @@ repository 생성
 <!-- nest g service auth --no-spec -->
 
 중복확인
-repository.findOne로 중복 확인 후 데이터 저장 or 데이터베이스레벨 에러(entity에서 @Unique)
+repository.findOne로 중복 확인 후 데이터 저장 (catch하지 않으면 500err)
+or
+데이터베이스레벨 에러(entity에서 @Unique)
 
 td
 src/auth/user.entity.ts 작성

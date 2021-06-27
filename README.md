@@ -201,10 +201,17 @@ JWT 구조
 1. 헤더 = 메타데이터, (타입 해싱알고리즘)
 2. 페이로드 = issuer expTime subject # 중요한 정보는 넣지 말 것
 3. verify signature = 서명 (헤더,페이로드 + 시크릿 > 해싱 :이라고 생각하면 됨, 서버에서 같은지 검증)
-https://jwt.io/
-<!-- npm i @nestjs/jwt @nestjs/passport passport passport-jwt --save -->
+   https://jwt.io/
+   <!-- npm i @nestjs/jwt @nestjs/passport passport passport-jwt @types/passport-jwt --save -->
+   <!-- npm i @types/passport-jwt --save   -->
 
 guard 인증 미들웨어
+
+미들웨어 종류
+pipes 유효성검사 페이로드변환, 데이터 직렬화
+filters 오류처리
+guards 인증
+interceptors 로깅과 같은 전후 미들웨어
 
 미들웨어 순서
 middleware>guard>interceptor(before)>pipe>ctrl>svc>ctrl>interceptor(after)>filter>client

@@ -9,6 +9,8 @@ import {
 import { AuthGuard } from '@nestjs/passport';
 import { AuthService } from './auth.service';
 import { AuthCredentialsDto } from './dto/auth-credential';
+import { GetUser } from './get-user.decorator';
+import { User } from './user.entity';
 
 @Controller('auth')
 export class AuthController {
@@ -25,7 +27,9 @@ export class AuthController {
   }
   @Post('/test')
   @UseGuards(AuthGuard()) //AuthGuard jwt.strategy.ts 에서 validate 리턴 user 값을 넣음, 토큰 없거나 잘 못된 경우 unauthorized
-  test(@Req() req) {
-    console.log(`req:${req}`);
+  test(@GetUser() user: User) {
+    console.log(`user:${user}`);
+    // test(@Req() req) {
+    // console.log(`req:${req}`);
   }
 }

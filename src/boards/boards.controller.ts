@@ -27,7 +27,6 @@ export class BoardsController {
   async getBoardById(@Param('id') id: number): Promise<Board> {
     return this.boardsService.getBoardById(id);
   }
-
   @Post()
   @UsePipes(ValidationPipe)
   async createBoard(@Body() dto: CreateBoardDto): Promise<Board> {

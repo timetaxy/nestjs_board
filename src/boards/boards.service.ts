@@ -1,5 +1,6 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
+import { User } from 'src/auth/user.entity';
 import { v1 as uuid } from 'uuid';
 import { BoardStatus } from './board-status.enum';
 import { Board } from './board.entity';
@@ -17,7 +18,7 @@ export class BoardsService {
     if (!found) throw new NotFoundException(`Can't find board.${id}`);
     return found;
   }
-  async createBoard(dto: CreateBoardDto): Promise<Board> {
+  async createBoard(dto: CreateBoardDto, user: User): Promise<Board> {
     // const { title, description } = dto;
     // const board: Board = this.boardRepository.create({
     //   //객체생성
@@ -27,7 +28,7 @@ export class BoardsService {
     // });
     // await this.boardRepository.save(board); //저장
     // return board;
-    return this.boardRepository.createBoard(dto);
+    return this.boardRepository.createBoard(dto, user);
   }
   async deleteBoard(id: number): Promise<void> {
     const result = await this.boardRepository.delete(id);

@@ -218,6 +218,6 @@ middleware>guard>interceptor(before)>pipe>ctrl>svc>ctrl>interceptor(after)>filte
 
 모듈간 사용하려면 모듈간 import
 
-권한 생성시 테스트시 barer 토큰 필요
+권한 생성후 테스트 포스트맨 Authorization 탭 barer 토큰
 
 <!-- typeorm.io/#/many-to-one-one-to-many-relations -->

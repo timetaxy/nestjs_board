@@ -36,6 +36,12 @@ export class BoardsService {
     if (result.affected === 0)
       throw new NotFoundException(`Can't find and delete id:${id}`);
   }
+  async deleteBoardByUser(id: number, user: User): Promise<void> {
+    // const board = await this.getBoardsByUser(user);
+    const result = await this.boardRepository.delete({ id, user });
+    if (result.affected === 0)
+      throw new NotFoundException(`Can't delete board : ${id}`);
+  }
   async updateBoardStatus(id: number, status: BoardStatus): Promise<Board> {
     const board = await this.getBoardById(id);
     board.status = status;
@@ -46,6 +52,14 @@ export class BoardsService {
   }
   async getAllBoards(): Promise<Board[]> {
     return this.boardRepository.find();
+  }
+
+  async getBoardsByUser(user: User): Promise<Board[]> {
+    const qry = this.boardRepository.createQueryBuilder('board');
+    qry.where('board.userId=:userId', { userId: user.id });
+    const boards = await qry.getMany();
+    return boards;
+    // return this.boardRepository.find();
   }
 
   /**

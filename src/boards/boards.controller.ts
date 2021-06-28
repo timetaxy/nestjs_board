@@ -41,6 +41,10 @@ export class BoardsController {
   async deleteBoard(@Param('id', ParseIntPipe) id: number): Promise<void> {
     this.boardsService.deleteBoard(id);
   }
+  @Delete('/my/:id')
+  async deleteBoardByUser(@Param('id', ParseIntPipe) id: number,@GetUser( user:User)): Promise<void> {
+    this.boardsService.deleteBoardById(id,user);
+  }
   @Patch('/:id/status')
   updateBoardStatus(
     @Param('id', ParseIntPipe) id: number,
@@ -50,8 +54,12 @@ export class BoardsController {
     return this.boardsService.updateBoardStatus(id, status);
   }
   @Get('/')
-  getAllBoards(): Promise<Board[]> {
+  async getAllBoards(): Promise<Board[]> {
     return this.boardsService.getAllBoards();
+  }
+  @Get('/my')
+  async getBoardsByUser(@GetUser() user: User): Promise<Board[]> {
+    return this.boardsService.getBoardsByUser(user);
   }
   /** 
   @Get('/')

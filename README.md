@@ -205,6 +205,9 @@ JWT 구조
    <!-- npm i @nestjs/jwt @nestjs/passport passport passport-jwt @types/passport-jwt --save -->
    <!-- npm i @types/passport-jwt --save   -->
 
+jwt 참고
+https://www.youtube.com/watch?v=H4VS-Osylvo
+
 guard 인증 미들웨어
 
 미들웨어 종류

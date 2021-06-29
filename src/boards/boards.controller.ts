@@ -3,6 +3,7 @@ import {
   Controller,
   Delete,
   Get,
+  Logger,
   Param,
   ParseIntPipe,
   Patch,
@@ -23,6 +24,7 @@ import { BoardStatusValidationPipe } from './pipes/board-status-validation.pipe'
 @Controller('boards')
 @UseGuards(AuthGuard())
 export class BoardsController {
+  private logger = new Logger('Board');
   constructor(private boardsService: BoardsService) {}
 
   @Get('/:id')
@@ -35,6 +37,9 @@ export class BoardsController {
     @Body() dto: CreateBoardDto,
     @GetUser() user: User,
   ): Promise<Board> {
+    this.logger.verbose(
+      `User ${user.username} createBoard, Payload:${JSON.stringify(dto)}`,
+    );
     return this.boardsService.createBoard(dto, user);
   }
   @Delete('/:id')
@@ -42,8 +47,11 @@ export class BoardsController {
     this.boardsService.deleteBoard(id);
   }
   @Delete('/my/:id')
-  async deleteBoardByUser(@Param('id', ParseIntPipe) id: number,@GetUser( user:User)): Promise<void> {
-    this.boardsService.deleteBoardById(id,user);
+  async deleteBoardByUser(
+    @Param('id', ParseIntPipe) id: number,
+    @GetUser() user: User,
+  ): Promise<void> {
+    return this.boardsService.deleteBoardByUser(id, user);
   }
   @Patch('/:id/status')
   updateBoardStatus(
@@ -59,6 +67,7 @@ export class BoardsController {
   }
   @Get('/my')
   async getBoardsByUser(@GetUser() user: User): Promise<Board[]> {
+    this.logger.verbose(`User ${user.username} getBoardsByUser`);
     return this.boardsService.getBoardsByUser(user);
   }
   /** 

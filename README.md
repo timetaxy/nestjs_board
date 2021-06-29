@@ -221,3 +221,13 @@ middleware>guard>interceptor(before)>pipe>ctrl>svc>ctrl>interceptor(after)>filte
 권한 생성후 테스트 포스트맨 Authorization 탭 barer 토큰
 
 <!-- typeorm.io/#/many-to-one-one-to-many-relations -->
+
+# 설정파일
+
+codebase : xml, json, yaml
+or
+environment var : like pw apikey
+
+<!-- npm i config --save -->
+
+(only win npm i -g win-node-env):윈도우는 환경변수 지원위해
